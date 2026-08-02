@@ -1,10 +1,16 @@
-function Window({title, helpBtn, closeBtn, content}){
+function Window({className, title, helpBtn, closeBtn, children}){
+
     return(
-    <div className="title-bar">
-        <div className="title-bar-text">{title}</div>
-        <div className="title-bar-controls">
-            {helpBtn.show && <button aria-label="Help"></button>}
-            {closeBtn.show && <button aria-label="Close"></button>}
+    <div className={className}>
+        <div className="window">
+            <div className="title-bar">
+                <div className="title-bar-text">{title}</div>
+                <div className="title-bar-controls">
+                    {helpBtn && <button aria-label="Help" onClick={helpBtn}></button>}
+                    {closeBtn && <button aria-label="Close" onClick={closeBtn}></button>}
+                </div>
+            </div>
+            {children}
         </div>
     </div>
     )

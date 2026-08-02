@@ -1,0 +1,44 @@
+html {
+    overflow-y: scroll;
+  }
+
+.flexContainerRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flexContainerColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#headerText{
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerNavigationBtn{
+    width: 90px;
+    height: 30px;
+    margin-left: 2px;
+    margin-right: 3px;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.headerNavigationBtn:hover {
+    transform: scale(1.06);
+  }
+
+.headerWindow{
+    width: 650px;
+
+}
