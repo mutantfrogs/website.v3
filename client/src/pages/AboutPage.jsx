@@ -2,9 +2,15 @@ import Window from "../components/Window"
 
 function AboutPage() {
   return (
-    <>
-        <h1></h1>
-    </>
+    <Window
+      className="pageWindow"
+      title="🖥️ my computer">
+        <div className="flexContainerRow">
+          <article role="tabpanel">
+
+          </article>
+        </div>
+    </Window>
   )
 }
 

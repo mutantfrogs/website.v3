@@ -1,5 +1,17 @@
+import Window from "../components/Window"
+
 function ExplorePage() {
-  return <h1>This is the Explore Page</h1>;
+  return(
+    <Window
+      className="pageWindow"
+      title="📁 file explorer">
+        <div className="flexContainerRow">
+          <article role="tabpanel">
+
+          </article>
+        </div>
+    </Window>
+  )
 }
 
 export default ExplorePage

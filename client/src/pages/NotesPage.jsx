@@ -1,5 +1,17 @@
+import Window from "../components/Window"
+
 function NotesPage() {
-  return <h1>This is the Notes Page</h1>;
+  return(
+    <Window
+      className="pageWindow"
+      title="🎨 paint">
+        <div className="flexContainerRow">
+            <article role="tabpanel">
+
+            </article>
+          </div>
+    </Window>
+  )
 }
 
 export default NotesPage

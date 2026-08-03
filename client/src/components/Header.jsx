@@ -21,7 +21,7 @@ function Header(){
             closeBtn={() => alert("This one is just for looks :P")}
         >
             <div>
-                <h1 id="headerText">{getHeaderText()}</h1>
+                <h1 className="headerText">{getHeaderText()}</h1>
                 <div className='flexContainerRow'>
                     <Link to="/">
                         <button className='headerNavigationBtn'>about</button>
