@@ -28,6 +28,7 @@ body{
 .headerWindow{
     width: 650px;
     margin-top: 15px;
+    position: relative;
 }
 
 .headerText{
@@ -50,6 +51,62 @@ body{
 .headerNavigationBtn:hover {
     transform: scale(1.06);
   }
+
+/* SPLASHTEXT STYLES */
+/* ################################################################ */
+
+.splashtext{
+    max-width: min(60vw, 350px);
+    text-align: center;
+    transform: rotate(-15deg);
+    color: #ffff00;
+    text-shadow: 2px 2px #5c5c00;
+    z-index: 500;
+    position: absolute;
+    bottom: -20px;
+    right: 0px;
+    animation: splashtextAnimation 2s infinite ease-in-out;
+    user-select: none;
+}
+
+.splashtext:hover{
+    color: #ffff2e;
+    text-shadow: 2px 2px #8a8a00;
+    scale: 1.05;
+    animation: none;
+    cursor: pointer;
+    
+}
+
+.splashtext:active{
+    color: #dbdb00;
+    text-shadow: 2px 2px #424200;
+    scale: 0.95;
+    animation: none;
+}
+
+@keyframes splashtextAnimation {
+    0% { transform: rotate(-15deg); scale: 1; } 
+    25% {transform: rotate(-16deg); scale: 1.05;} 
+    50% { transform: rotate(-15deg); scale: 1; } 
+    75% { transform: rotate(-14deg); scale: 1.05; } 
+  }
+
+.splashtextSpecial{
+    color: #fb92ff;
+    text-shadow: 2px 2px #7a2992;
+}
+
+.splashtextSpecial:hover{
+    color: #fcafff;
+    text-shadow: 2px 2px #9b43b6;
+    
+}
+
+.splashtextSpecial:active{
+    color: #db72df;
+    text-shadow: 2px 2px #5b1770;
+}
 
 /* PAGE WINDOW STYLES */
 /* ################################################################ */

@@ -26,8 +26,6 @@
     {"value":"today's wordle is \"CREAM\""},
     {"value":"in the house like carpet"},
     {"value":"what the scallop?!"},
-    {"value":"might be allied with the gnomes"},
-    {"value":"POWER FROM WITHIN!!!"},
     {"value":"trans rights!"},
     {"value":"made with <3"},
     {"value":"certified cat rage room"},
@@ -62,13 +60,14 @@
     {"value":"removed herobrine"},
     {"value":"collect my pages"},
     {"value":"it's a doggy dog world"},
-    {"value":"DOOR STUCK! DOOR STUCK!"},
+    {"value":"DOOR STUCK!"},
+    {"value":"BOOM HEADSHOT!"},
     {"value":"born to frag"},
     {"value":"linux rocks!"},
     {"value":"brown bricks in minecrap"},
     {"value":"ytpmv elf reupload"},
     {"value": "not a significant source of protein"},
-    {"value":"happy halloween!", "month":"10", "day":"31"},
-    {"value":"merry christmas!", "month":"12", "day":"25"},
-    {"value":"happy leif erikson day!", "month":"10", "day":"9"}
+    {"value":"happy halloween!", "month":10, "day":31},
+    {"value":"merry christmas!", "month":12, "day":25},
+    {"value":"happy leif erikson day!", "month":10, "day":9}
 ]
