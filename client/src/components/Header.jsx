@@ -25,7 +25,7 @@ function Header(){
             <div>
                 <Splashtext/>
                 <h1 className="headerText">{getHeaderText()}</h1>
-                <div className='flexContainerRow'>
+                <div className='flexRow'>
                     <Link to="/">
                         <button className='headerNavigationBtn'>about</button>
                         </Link>

@@ -9,7 +9,7 @@ import "./style.css"
 function App() {
 
   return (
-    <div className="flexContainerColumn">
+    <div className="flexColumn">
       <Router>
         <Header/>
         <Routes>

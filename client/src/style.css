@@ -8,19 +8,23 @@ body{
     background-image: url('./assets/images/background.png');
 }
 
-.flexContainerRow{
+.flexRow{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.flexContainerColumn {
+.flexColumn {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+.centeredText{
+    text-align: center;
 }
 
 /* HEADER STYLES */
@@ -113,10 +117,32 @@ body{
 
 .pageWindow{
     min-width: 800px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin-top: 60px; 
     margin-bottom: 60px;
 }
 
+.pageArticle{
+    padding: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
 /* ABOUT STYLES */
 /* ################################################################ */
+
+
+/* MISC STYLES */
+/* ################################################################ */
+.socialsBtn{
+    max-height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.socialsBtn:hover {
+    transform: scale(1.2);
+}

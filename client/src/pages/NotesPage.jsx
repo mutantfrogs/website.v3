@@ -5,8 +5,8 @@ function NotesPage() {
     <Window
       className="pageWindow"
       title="🎨 paint">
-        <div className="flexContainerRow">
-            <article role="tabpanel">
+        <div className="flexRow">
+            <article role="tabpanel" className="pageArticle">
 
             </article>
           </div>

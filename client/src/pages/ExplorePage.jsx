@@ -5,8 +5,8 @@ function ExplorePage() {
     <Window
       className="pageWindow"
       title="📁 file explorer">
-        <div className="flexContainerRow">
-          <article role="tabpanel">
+        <div className="flexRow">
+          <article role="tabpanel" className="pageArticle">
 
           </article>
         </div>
