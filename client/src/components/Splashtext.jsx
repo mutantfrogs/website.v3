@@ -2,61 +2,49 @@ import {useState, useEffect} from 'react';
 import splashtextjson from '../assets/data/splashtext.json'
 
 function Splashtext(){
-    const [splashText, setSplashText] = useState(null)
-    const [splashSize, setSplashSize] = useState(null);
-    const [splashClasses, setSplashClasses] = useState(null)
+    const [splashList, setSplashList] = useState(splashtextjson)
+    const [splashIndex, setSplashIndex] = useState(0)
 
-    const getSplashList = () => {
-        //get info about current date
+    //filter and shuffle list on mount
+    useEffect(() => {
+        let splashes = [...splashtextjson]
         let today = new Date()
         let month = today.getMonth() + 1
         let day = today.getDate()
-
-        //list of filters to apply
         const filters = [
             s => s.month === month && s.day === day,    //month and day defined
             s => s.month === undefined && s.day === undefined,    //no date defined
         ]
 
-        //returns first filtered result that has a length greater than 0
+        //apply filters, if any return a value use that list
         for(const f of filters){
-            let result = splashtextjson.filter(f)
+            let result = splashes.filter(f)
             if(result.length){
-                return result
+                splashes = result
             }
         }
-        
-        //fallback value
-        return([{"value": "Error: No splashes found!"}])
-    }
 
-    //randomizes splash text value
-    const setSplash = () => {
-        //pick random splash from list
-        const splashes = getSplashList()
-        const index = Math.floor(Math.random() * splashes.length)
-        const splash = splashes[index]
-
-        //set splashClasses
-        if(splash.special){
-            setSplashClasses("splashtext splashtextSpecial")
-        }
-        else{
-            setSplashClasses("splashtext")
+        //shuffle order of filtered splashlist using Fisher-Yates algorithm
+        for(let i = splashes.length - 1; i > 0; i--){
+            const randomIndex = Math.floor(Math.random() * (i + 1));
+            [splashes[i], splashes[randomIndex]] = [splashes[randomIndex], splashes[i]];
         }
 
-        //set splashText and splashSize
-        const text = splash.value
-        const size = 40 - text.length * 0.6
-        setSplashText(text)
-        setSplashSize(size)
+        setSplashList(splashes)
+    }, [])
+
+    //increment index on click
+    const updateSplash = () => {
+        setSplashIndex(index => (index + 1) % splashList.length)
     }
 
-    //runs setSplash() on component mount
-    useEffect(() => {setSplash()}, [])
+    //set splashtext properties
+    let splashText = splashList[splashIndex].value
+    let splashSize = 40 - splashText.length * 0.6
+    let splashStyle = splashList[splashIndex].special ? "splashtext splashtextSpecial" : "splashtext"
 
     return(
-        <h4 onClick={setSplash} className={splashClasses} style={{fontSize: splashSize}}>{splashText}</h4>
+        <h4 onClick={updateSplash} className={splashStyle} style={{fontSize: splashSize}}>{splashText}</h4>
     )
 }
 
