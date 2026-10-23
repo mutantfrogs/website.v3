@@ -117,27 +117,36 @@ body{
 
 .pageWindow{
     min-width: 800px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin-top: 60px; 
     margin-bottom: 60px;
 }
 
 .pageArticle{
     padding: 14px;
-    margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 40px;
     margin-right: 40px;
+    text-align: center;
+    max-width: 695px;
+}
+
+.title-bar{
+    margin-bottom: 15px;
 }
 
 /* ABOUT STYLES */
 /* ################################################################ */
+.aboutText{
+    text-align: center;
+    font-size: 14px;
+}
 
-
-/* MISC STYLES */
+/* MISC. COMPONENT STYLES */
 /* ################################################################ */
 .socialsBtn{
     max-height: 40px;
+    margin-top: 10px;
     margin-left: 20px;
     margin-right: 20px;
     cursor: pointer;
@@ -145,4 +154,8 @@ body{
 
 .socialsBtn:hover {
     transform: scale(1.2);
+}
+
+.socialsBtn:active {
+    transform: scale(1.0);
 }
