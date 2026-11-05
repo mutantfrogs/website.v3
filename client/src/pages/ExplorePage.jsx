@@ -1,10 +1,11 @@
+import { useState } from "react"
 import Window from "../components/Window"
 import artData from "../assets/data/artwork.json"
-import { useState } from "react"
+import constructionGif from "../assets/images/construction.gif"
 
 function ExplorePage() {
   const artTabId = "artwork"
-  const wipTabId = "more coming soon!"
+  const wipTabId = "coming soon!"
   const [selectedTab, setSelectedTab] = useState(artTabId)
 
   const updateTab = (tabId) => {
@@ -13,12 +14,12 @@ function ExplorePage() {
 
   const populateArt = (year) => {
     //filter json by year
-    const filteredData = artData.filter(x => x.year === year)
+    const filteredArt = artData.filter(x => x.year === year)
 
     //create array of buttons
-    const buttonData = filteredData.map(x => (
+    const buttonData = filteredArt.map(x => (
       <button className="exploreMediaBtn">
-        <img src={`art/${year}/thumbnails/${x.id}.${x.type}`}></img>
+        <img src={`art/${year}/thumbnails/${x.id}.${x.filetype}`}></img>
       </button>
     ))
     
@@ -41,13 +42,18 @@ function ExplorePage() {
               <button aria-selected={selectedTab === wipTabId} aria-controls={wipTabId} onClick={() => updateTab(wipTabId)}>{wipTabId}</button>
             </menu>
               <article role="tabpanel" className="pageArticle">
-                {/* art tab*/}
+                {/*art tab*/}
                 <div hidden={selectedTab !== artTabId}>
                   {populateArt(2026)}
                   {populateArt(2025)}
                   {populateArt(2024)}
                   {populateArt(2023)}
                   {populateArt(2022)}
+                </div>
+
+                {/*wip tab*/}
+                <div hidden={selectedTab !== wipTabId}>
+                  <img src={constructionGif}></img>
                 </div>
               </article>
           </div>  

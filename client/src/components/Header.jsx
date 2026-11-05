@@ -1,7 +1,6 @@
+import { Link, useLocation } from 'react-router';
 import Window from "../components/Window"
 import Splashtext from "../components/Splashtext"
-import {useState} from 'react';
-import { Link, useLocation } from 'react-router';
 
 function Header(){
     const location = useLocation();
