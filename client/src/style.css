@@ -112,7 +112,7 @@ body{
     text-shadow: 2px 2px #5b1770;
 }
 
-/* PAGE WINDOW STYLES */
+/* WINDOW+ARTICLE STYLES */
 /* ################################################################ */
 
 .pageWindow{
@@ -122,24 +122,45 @@ body{
     margin-bottom: 60px;
 }
 
+.title-bar{
+    margin-bottom: 15px;
+}
+
 .pageArticle{
     padding: 14px;
     margin-bottom: 20px;
     margin-left: 40px;
     margin-right: 40px;
     text-align: center;
+    min-width: 300px;
     max-width: 695px;
 }
 
-.title-bar{
-    margin-bottom: 15px;
+.articleHeader{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
 }
 
-/* ABOUT STYLES */
+/* ABOUT PAGE STYLES */
 /* ################################################################ */
 .aboutText{
     text-align: center;
     font-size: 14px;
+}
+
+/* EXPLORE PAGE STYLES */
+/* ################################################################ */
+.exploreMediaBtn{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.exploreMediaBtn:hover {
+    opacity: .75;
+    transform: scale(.95);
 }
 
 /* MISC. COMPONENT STYLES */

@@ -16,6 +16,9 @@ export default function Socials(){
             <a target="_blank" href="https://github.com/mutantfrogs">
                 <img className="socialsBtn" src={github} alt="GitHub" />
                 </a>
+            <a target="_blank" href="https://discord.com/users/272445901593903114">
+                <img className="socialsBtn" src={discord} alt="Discord" />
+                </a>
         </div>
             <div className='centeredText'>
                 <p> (i'm barely active on anything but this is where else you can find me!) </p>

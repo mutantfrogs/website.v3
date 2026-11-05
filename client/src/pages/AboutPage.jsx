@@ -20,11 +20,6 @@ function AboutPage() {
       title="🖥️ my computer">
         <div className="flexColumn">
           <div>
-            <menu role="tablist" style={{marginLeft:"40px"}}>
-              <button aria-selected="true" aria-controls="music">about me</button>
-              <button aria-controls="dogs">changelog</button>
-              <button aria-controls="food">webring</button>
-            </menu>
               <article role="tabpanel" className="pageArticle">
                 <p className="aboutText">
                   hello! my name is <b>jules (they/they)</b> aka <b>mutantfrogs</b>. 
