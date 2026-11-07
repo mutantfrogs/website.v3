@@ -1,9 +1,12 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import Window from "../components/Window"
 import artData from "../assets/data/artwork.json"
+import SecretContext from "../context/SecretContext"
 import constructionGif from "../assets/images/construction.gif"
 
 function ExplorePage() {
+  const {secrets, setSecrets} = useContext(SecretContext)
+
   const artTabId = "artwork"
   const wipTabId = "coming soon!"
   const [selectedTab, setSelectedTab] = useState(artTabId)
