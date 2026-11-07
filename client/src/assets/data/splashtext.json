@@ -20,7 +20,6 @@
     {"value":"wh-wha-whats going on-on?"},
     {"value":"pop punk apologist"},
     {"value":"tnt is just really cool"},
-    {"value":"try \"oldskool\"", "special":"true"},
     {"value":"screw the nether!"},
     {"value":"todo: remove this splashtext"},
     {"value":"today's wordle is \"CREAM\""},
@@ -80,5 +79,7 @@
     {"value":"shoutout to clover"},
     {"value":"shoutout to kyle"},
     {"value":"shoutout to matt"},
-    {"value":"shoutout to jat255toast"}
+    {"value":"shoutout to jat255toast"},
+    {"value":"pink text is important"},
+    {"value":"try \"oldskool\"", "special":"true"}
 ]

@@ -1,14 +1,13 @@
 import { useState, useContext } from "react"
+import { SecretContext } from "../context/SecretContext"
 import Window from "../components/Window"
 import artData from "../assets/data/artwork.json"
-import SecretContext from "../context/SecretContext"
-import constructionGif from "../assets/images/construction.gif"
 
 function ExplorePage() {
   const {secrets, setSecrets} = useContext(SecretContext)
 
   const artTabId = "artwork"
-  const wipTabId = "coming soon!"
+  const debugTabId = "debug"
   const [selectedTab, setSelectedTab] = useState(artTabId)
 
   const updateTab = (tabId) => {
@@ -16,6 +15,11 @@ function ExplorePage() {
   }
 
   const populateArt = (year) => {
+    //return nothing if enableArtArchive cheatcode isn't actiavted
+    if(secrets.enableArtArchive == false && year < 2021){
+      return
+    }
+    
     //filter json by year
     const filteredArt = artData.filter(x => x.year === year)
 
@@ -25,6 +29,11 @@ function ExplorePage() {
         <img src={`art/${year}/thumbnails/${x.id}.${x.filetype}`}></img>
       </button>
     ))
+
+    //return nothing if no artwork exists for the year
+    if(buttonData.length == 0){
+      return
+    }
     
     //return header+buttons
     return <div>
@@ -42,7 +51,7 @@ function ExplorePage() {
           <div>
             <menu role="tablist" style={{marginLeft:"40px"}}>
               <button aria-selected={selectedTab === artTabId} aria-controls={artTabId} onClick={() => updateTab(artTabId)}>{artTabId}</button>
-              <button aria-selected={selectedTab === wipTabId} aria-controls={wipTabId} onClick={() => updateTab(wipTabId)}>{wipTabId}</button>
+              <button aria-selected={selectedTab === debugTabId} aria-controls={debugTabId} onClick={() => updateTab(debugTabId)}>{debugTabId}</button>
             </menu>
               <article role="tabpanel" className="pageArticle">
                 {/*art tab*/}
@@ -52,11 +61,20 @@ function ExplorePage() {
                   {populateArt(2024)}
                   {populateArt(2023)}
                   {populateArt(2022)}
+                  {populateArt(2021)}
+                  {populateArt(2020)}
+                  {populateArt(2019)}
+                  {populateArt(2018)}
+                  {populateArt(2017)}
+                  {populateArt(2016)}
                 </div>
 
                 {/*wip tab*/}
-                <div hidden={selectedTab !== wipTabId}>
-                  <img src={constructionGif}></img>
+                <div hidden={selectedTab !== debugTabId}>
+                  <div className="flexColumn">
+                    <button onClick={() => {setSecrets(prev => ({...prev, enableArtArchive: !secrets.enableArtArchive}))}}>enableArtArchive</button>
+                    <button onClick={() => {setSecrets(prev => ({...prev, enableBannedNotes: !secrets.enableBannedNotes}))}}>enableBannedNotes</button>
+                  </div>
                 </div>
               </article>
           </div>  
