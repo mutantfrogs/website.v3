@@ -20,7 +20,7 @@ function AboutPage() {
       title="🖥️ my computer">
         <div className="flexColumn">
           <div>
-              <article role="tabpanel" className="pageArticle">
+              <article role="tabpanel" className="pageArticle" style={{maxWidth:'695px'}}>
                 <p className="aboutText">
                   hello! my name is <b>jules (they/they)</b> aka <b>mutantfrogs</b>. 
                   i am a {age} year old artist, developer, and proud netizen. 

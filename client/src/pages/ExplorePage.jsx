@@ -26,7 +26,7 @@ function ExplorePage() {
     //create array of buttons
     const buttonData = filteredArt.map(x => (
       <button className="exploreMediaBtn">
-        <img src={`art/${year}/thumbnails/${x.id}.${x.filetype}`}></img>
+        <img src={`art/${year}/thumbnails/${x.id}.png`}></img>
       </button>
     ))
 
