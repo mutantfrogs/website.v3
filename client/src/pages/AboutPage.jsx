@@ -18,7 +18,7 @@ function AboutPage() {
     <Window
       className="pageWindow"
       title="🖥️ my computer">
-        <div className="flexColumn">
+        <div className="flexColumn pageSpacer">
           <div>
               <article role="tabpanel" className="pageArticle" style={{maxWidth:'695px'}}>
                 <p className="aboutText">

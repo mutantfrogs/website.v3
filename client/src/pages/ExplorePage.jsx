@@ -1,6 +1,7 @@
 import { useState, useContext } from "react"
 import { SecretContext } from "../context/SecretContext"
 import Window from "../components/Window"
+import Modal from "../components/Modal"
 import artData from "../assets/data/artwork.json"
 
 function ExplorePage() {
@@ -9,6 +10,9 @@ function ExplorePage() {
   const artTabId = "artwork"
   const debugTabId = "debug"
   const [selectedTab, setSelectedTab] = useState(artTabId)
+
+  const [modalOpen, setModalOpen] = useState(false)
+  const [modalImage, setModalImage] = useState(null)
 
   const updateTab = (tabId) => {
     setSelectedTab(tabId)
@@ -26,7 +30,10 @@ function ExplorePage() {
     //create array of buttons
     const buttonData = filteredArt.map(x => (
       <button className="exploreMediaBtn">
-        <img src={`art/${year}/thumbnails/${x.id}.png`}></img>
+        <img 
+          src={`art/${year}/thumbnails/${x.id}.png`} 
+          onClick={() => {onClickArt(`art/${year}/${x.id}.${x.filetype}`)}}>
+        </img>
       </button>
     ))
 
@@ -43,43 +50,61 @@ function ExplorePage() {
       </div>
   }
 
-  return(
-    <Window
-      className="pageWindow"
-      title="📁 file explorer">
-        <div className="flexColumn">
-          <div>
-            <menu role="tablist" style={{marginLeft:"40px"}}>
-              <button aria-selected={selectedTab === artTabId} aria-controls={artTabId} onClick={() => updateTab(artTabId)}>{artTabId}</button>
-              <button aria-selected={selectedTab === debugTabId} aria-controls={debugTabId} onClick={() => updateTab(debugTabId)}>{debugTabId}</button>
-            </menu>
-              <article role="tabpanel" className="pageArticle">
-                {/*art tab*/}
-                <div hidden={selectedTab !== artTabId}>
-                  {populateArt(2026)}
-                  {populateArt(2025)}
-                  {populateArt(2024)}
-                  {populateArt(2023)}
-                  {populateArt(2022)}
-                  {populateArt(2021)}
-                  {populateArt(2020)}
-                  {populateArt(2019)}
-                  {populateArt(2018)}
-                  {populateArt(2017)}
-                  {populateArt(2016)}
-                </div>
+  const onClickArt = (imageSrc) => {
+    setModalOpen(true)
+    setModalImage(imageSrc)
+  }
 
-                {/*wip tab*/}
-                <div hidden={selectedTab !== debugTabId}>
-                  <div className="flexColumn">
-                    <button onClick={() => {setSecrets(prev => ({...prev, enableArtArchive: !secrets.enableArtArchive}))}}>enableArtArchive</button>
-                    <button onClick={() => {setSecrets(prev => ({...prev, enableBannedNotes: !secrets.enableBannedNotes}))}}>enableBannedNotes</button>
+  return(
+    <div>
+      <Window
+        className="pageWindow"
+        title="📁 file explorer">
+          <div className="flexColumn pageSpacer">
+            <div>
+              <menu role="tablist" style={{marginLeft:"40px"}}>
+                <button aria-selected={selectedTab === artTabId} aria-controls={artTabId} onClick={() => updateTab(artTabId)}>{artTabId}</button>
+                <button aria-selected={selectedTab === debugTabId} aria-controls={debugTabId} onClick={() => updateTab(debugTabId)}>{debugTabId}</button>
+              </menu>
+                <article role="tabpanel" className="pageArticle">
+                  {/*art tab*/}
+                  <div hidden={selectedTab !== artTabId}>
+                    {populateArt(2026)}
+                    {populateArt(2025)}
+                    {populateArt(2024)}
+                    {populateArt(2023)}
+                    {populateArt(2022)}
+                    {populateArt(2021)}
+                    {populateArt(2020)}
+                    {populateArt(2019)}
+                    {populateArt(2018)}
+                    {populateArt(2017)}
+                    {populateArt(2016)}
                   </div>
-                </div>
-              </article>
-          </div>  
-        </div>
-    </Window>
+
+                  {/*wip tab*/}
+                  <div hidden={selectedTab !== debugTabId}>
+                    <div className="flexColumn">
+                      <button onClick={() => {setSecrets(prev => ({...prev, enableArtArchive: !secrets.enableArtArchive}))}}>enableArtArchive</button>
+                      <button onClick={() => {setSecrets(prev => ({...prev, enableBannedNotes: !secrets.enableBannedNotes}))}}>enableBannedNotes</button>
+                      <button onClick={() => {setModalOpen(true)}}>enableModal</button>
+                    </div>
+                  </div>
+                </article>
+            </div>  
+          </div>
+      </Window>
+
+      {/*modal*/}
+      <Modal isOpen={modalOpen} onClose={() => {setModalOpen(false)}}>
+        <Window className="pageWindow" title="🌎 picture viewer">
+          <img 
+            src={modalImage}
+            className="exploreModalImage">  
+          </img>
+        </Window>
+      </Modal>
+    </div>
   )
 }
 

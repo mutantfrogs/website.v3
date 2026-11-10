@@ -14,7 +14,7 @@ function NotesPage() {
     <Window
       className="pageWindow"
       title="🎨 paint">
-        <div className="flexColumn">
+        <div className="flexColumn pageSpacer">
           <div>
             <menu role="tablist" style={{marginLeft:"40px"}}>
               <button aria-selected={selectedTab === viewTabId} aria-controls={viewTabId} onClick={() => updateTab(viewTabId)}>{viewTabId}</button>
